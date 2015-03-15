@@ -95,14 +95,16 @@ public class VarastoTest {
     }
     
     @Test
+    public void varastonSaldoNollaKunOtetaanYliMaaran() {
+        varasto.otaVarastosta(varasto.getSaldo()+1);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
     public void otetaanYliMaaran() {
         double saldo = varasto.getSaldo();
         assertEquals(saldo, varasto.otaVarastosta(varasto.getSaldo()+1), vertailuTarkkuus);
     }
     
-    @Test
-    public void varastonSaldoNollaKunOtetaanYliMaaran() {
-        varasto.otaVarastosta(varasto.getSaldo()+1);
-        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
-    }
+    
 }
